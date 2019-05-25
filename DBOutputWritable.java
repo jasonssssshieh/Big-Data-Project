@@ -15,10 +15,14 @@ public class DBOutputWritable implements DBWritable{
 	}
 
 	public void readFiles(ResultSet arg0) throws SQLException{
-		
+		this.starting_phrase = arg0.getString(1);
+		this.following_word = arg0.getString(2);
+		this.count = arg0.getInt(3);
 	}
 
-	public word write(PreparedStatement agr0) throws SQLException{
-
+	public word write(PreparedStatement arg0) throws SQLException{
+		arg0.setString(1, starting_phrase);
+		arg0.setString(2, following_word);
+		arg0.setInt(3, count);
 	}
 }
